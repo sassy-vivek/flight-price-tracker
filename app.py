@@ -8,17 +8,11 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-# -------------------------------------
-# Amadeus API Credentials
-# -------------------------------------
-CLIENT_ID = "dA555aq7i9AwIjwmJgAzV96AGjUik0nw"
-CLIENT_SECRET = "DZHivaWi2liwxUX9"
-
-# -------------------------------------
-# Telegram Alert Settings
-# -------------------------------------
-BOT_TOKEN = "7895276383:AAGYtgtDjYqL5FCu826lEw61DB36uzrxFiE"
-CHAT_ID = "5618550327"
+import os
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 
 
 @app.route("/search", methods=["GET"])
